@@ -1,0 +1,26 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="economymod"
+version="1.0.0"
+displayName="Economy Mod"
+description='''
+Un mod d'économie complet avec boutique, système d'argent, et épargne.
+'''
+authors="YourName"
+
+[[dependencies.economymod]]
+modId="neoforge"
+mandatory=true
+versionRange="[21.1,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.economymod]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.21.1,1.22)"
+ordering="NONE"
+side="BOTH"
