@@ -4,10 +4,8 @@ import com.xolby.economy.EconomyMod;
 import com.xolby.economy.data.PlayerDataManager;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
-import com.mojang.brigadier.suggestion.SuggestionProvider;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
-import net.minecraft.commands.SharedSuggestionProvider;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -17,14 +15,9 @@ import net.minecraft.world.item.ItemStack;
 
 public class SellCommand {
 
-    private static final SuggestionProvider<CommandSourceStack> SUGGEST_ALL = (context, builder) -> {
-        return SharedSuggestionProvider.suggest(new String[]{"all"}, builder);
-    };
-
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         dispatcher.register(Commands.literal("sell")
             .then(Commands.literal("all")
-                .suggests(SUGGEST_ALL)
                 .executes(context -> sellAll(context))
             )
         );
