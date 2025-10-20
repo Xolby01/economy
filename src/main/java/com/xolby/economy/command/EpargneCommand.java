@@ -1,6 +1,7 @@
 package com.xolby.economy.command;
 
 import com.xolby.economy.EconomyMod;
+import com.xolby.economy.config.ConfigGenerator;
 import com.xolby.economy.config.EconomyConfig;
 import com.xolby.economy.data.PlayerDataManager;
 import com.mojang.brigadier.CommandDispatcher;
