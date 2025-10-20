@@ -1,26 +1,24 @@
 modLoader="javafml"
-loaderVersion="[4,)"
-license="All Rights Reserved"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
 
 [[mods]]
-modId="economymod"
-version="1.0.0"
-displayName="Economy Mod"
-description='''
-Un mod d'économie complet avec boutique, système d'argent, et épargne.
-'''
-authors="YourName"
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+description='''${mod_description}'''
+authors="${mod_authors}"
 
-[[dependencies.economymod]]
+[[dependencies.${mod_id}]]
 modId="neoforge"
-mandatory=true
-versionRange="[21.1,)"
+type="required"
+versionRange="${neo_version_range}"
 ordering="NONE"
 side="BOTH"
 
-[[dependencies.economymod]]
+[[dependencies.${mod_id}]]
 modId="minecraft"
-mandatory=true
-versionRange="[1.21.1,1.22)"
+type="required"
+versionRange="${minecraft_version_range}"
 ordering="NONE"
 side="BOTH"
