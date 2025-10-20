@@ -14,7 +14,7 @@ public class PlayerDataManager {
     private Map<UUID, PlayerEconomyData> playerData = new HashMap<>();
 
     public PlayerDataManager(MinecraftServer server) {
-        this.dataPath = server.getServerDirectory().toPath().resolve("economy_data.json");
+        this.dataPath = server.getServerDirectory().resolve("economy_data.json");
     }
 
     public void load() {
@@ -84,11 +84,12 @@ public class PlayerDataManager {
     }
 
     public List<Map.Entry<UUID, Double>> getTopMoney(int limit) {
-        return playerData.entrySet().stream()
-            .sorted((a, b) -> Double.compare(b.getValue().money, a.getValue().money))
-            .limit(limit)
-            .map(e -> new AbstractMap.SimpleEntry<>(e.getKey(), e.getValue().money))
-            .toList();
+        List<Map.Entry<UUID, Double>> list = new ArrayList<>();
+        for (Map.Entry<UUID, PlayerEconomyData> entry : playerData.entrySet()) {
+            list.add(new AbstractMap.SimpleEntry<>(entry.getKey(), entry.getValue().money));
+        }
+        list.sort((a, b) -> Double.compare(b.getValue(), a.getValue()));
+        return list.subList(0, Math.min(limit, list.size()));
     }
 
     public static class PlayerEconomyData {
