@@ -14,9 +14,9 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.neoforged.neoforge.event.server.ServerStoppingEvent;
 import org.slf4j.Logger;
 
-@Mod(EconomyMod.MODID)
+@Mod("economy")
 public class EconomyMod {
-    public static final String MODID = "economymod";
+    public static final String MODID = "economy";
     private static final Logger LOGGER = LogUtils.getLogger();
     
     private static PlayerDataManager playerDataManager;
